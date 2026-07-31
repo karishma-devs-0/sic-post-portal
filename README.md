@@ -133,12 +133,50 @@ Custom domain: add a `public/CNAME` file with the domain, and set the CNAME in D
 | `font-serif`  | Instrument Serif | italic accent text |
 | default font  | Almarai    | everything else |
 
+---
+
+## One-Tap Posting Lab (`/lab.html`)
+
+Standalone diagnostic page — **zero build step, zero deps** except a CDN QR library. Lives at [`public/lab.html`](public/lab.html) and gets copied verbatim into the build; accessible at:
+
+- Local dev: `http://localhost:5173/lab.html`
+- Production: `https://<username>.github.io/<repo>/lab.html`
+
+**What it proves on real phones** (the only reliable way to demo Web Share behavior):
+- Level 1 · pre-filled composer intents for LinkedIn / X / Threads / WhatsApp (URL generation is live from the editable caption; nothing hard-coded)
+- Level 2 · Smart Share — canvas-generated PNG "certificate" card sent via `navigator.share({ files, text })`; Instagram mode (image-only + caption in clipboard)
+- Diagnostics panel (secure context · `navigator.share` · `canShare({files})` · Clipboard API · UA)
+- Event log — every click is timestamped and appended; screenshot after each device test
+- Self-QR of `location.href` so the room can scan and join
+
+### Phone test checklist
+
+Fill this during device testing. First two rows are the expected baseline — verify against them.
+
+| Device / OS / Browser | L1 LinkedIn | L1 X | L1 Threads | L1 WhatsApp | L2 image+caption | L2 Instagram | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Android · Chrome (expected)** | App opens · composer pre-filled | App opens · composer pre-filled | App opens · composer pre-filled | App opens · composer pre-filled | Share sheet lists LinkedIn / X / WhatsApp; those receive image + text | IG receives image; text arrives via clipboard paste | baseline |
+| **iOS · Safari (expected)** | LinkedIn app opens · composer pre-filled | Twitter/X app opens · pre-filled | Threads app opens · pre-filled | WhatsApp opens · pre-filled | Sheet lists apps; most keep both image + text | IG receives image; long-press paste for caption | baseline |
+| Android · … · Chrome | | | | | | | |
+| Android · … · Samsung Internet | | | | | | | |
+| iOS · … · Safari | | | | | | | |
+| iOS · … · Chrome | | | | | | | |
+
+Screenshot the event log after each device to attach to the row.
+
+### Deploying the lab alone
+
+The lab is bundled with the main site — no separate deployment step. If you need a fully isolated version to open as a file:// URL or send by email, just copy `public/lab.html` — it's self-contained (only external dep is the CDN QR script).
+
+---
+
 ## File map
 
 ```
 website/
 ├── public/
 │   ├── 404.html                      # SPA-friendly Pages fallback
+│   ├── lab.html                      # standalone One-Tap Posting Lab (no build)
 │   └── data/
 │       ├── students.json             # roll → {course, university}   (no names)
 │       ├── students.sample.json      # shape doc

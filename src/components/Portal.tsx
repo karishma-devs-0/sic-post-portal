@@ -270,6 +270,19 @@ export default function Portal() {
             className="text-primary text-lg sm:text-xl md:text-2xl leading-relaxed"
           />
         </div>
+
+        {/* ---- One-Tap Posting Lab (diagnostic / demo) ---- */}
+        <div className="mt-10 text-center">
+          <a
+            href={`${import.meta.env.BASE_URL}lab.html`}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-primary transition-colors"
+          >
+            <span>Testing lab</span>
+            <span className="opacity-60">·</span>
+            <span>One-tap posting mechanism demo</span>
+            <ArrowRight className="w-3.5 h-3.5" style={{ transform: 'rotate(-45deg)' }} />
+          </a>
+        </div>
       </div>
     </section>
   )
