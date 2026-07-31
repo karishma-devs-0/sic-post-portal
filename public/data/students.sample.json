@@ -1,0 +1,10 @@
+{
+  "_comment_shape": "Object keyed by SIC roll number. Value: { course, university }. NO NAMES — privacy.",
+  "_comment_courses": "Allowed course values (match keys in tasks.json): 'AI', 'Coding & Programming', 'IoT', 'Big Data'.",
+  "_comment_regenerate": "Regenerate from the TSSC master sheet with: python scripts/build_students_json.py --in master.xlsx --out public/data/students.json — script strips names/emails/phones.",
+
+  "SIC26-TSSC-0001": { "course": "AI",                   "university": "KMC Language University" },
+  "SIC26-TSSC-0002": { "course": "Coding & Programming", "university": "Amity University" },
+  "SIC26-TSSC-0003": { "course": "IoT",                  "university": "Chandigarh University" },
+  "SIC26-TSSC-0004": { "course": "Big Data",             "university": "Pimpri Chinchwad University" }
+}

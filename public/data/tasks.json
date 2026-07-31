@@ -1,0 +1,30 @@
+{
+  "week": 7,
+  "_comment": "Set `week` manually each week (or let the frontend compute from CAMPAIGN_START in Portal.tsx). `tasks` maps course → { title, prompt, caption, templateUrl }. Caption should already contain #MySICStory + #SamsungInnovationCampus.",
+  "tasks": {
+    "AI": {
+      "title": "Week 7 · Show your first working model.",
+      "prompt": "Share a screenshot or short clip of a model you built this week — a notebook cell, a Streamlit demo, an accuracy graph. Explain in 2 lines what you built and one thing that surprised you.",
+      "caption": "Week 7 at Samsung Innovation Campus. This week I built [WHAT] and learned that [ONE INSIGHT]. Grateful to TSSC and Samsung Electronics for the AI track — the shift from theory to something that actually runs is real.\n\n#MySICStory #SamsungInnovationCampus",
+      "templateUrl": "https://www.canva.com/design/DAF1_placeholder_AI/view"
+    },
+    "Coding & Programming": {
+      "title": "Week 7 · Ship a small feature.",
+      "prompt": "Post a screenshot of code you wrote this week — a function, a component, a bug fix. Two lines of caption: what it does and what you learned building it.",
+      "caption": "Week 7 at Samsung Innovation Campus. Shipped [WHAT] this week. Biggest lesson: [ONE INSIGHT]. Thanks to TSSC + Samsung Electronics for the C&P track.\n\n#MySICStory #SamsungInnovationCampus",
+      "templateUrl": "https://www.canva.com/design/DAF1_placeholder_CP/view"
+    },
+    "IoT": {
+      "title": "Week 7 · Post a photo of your circuit.",
+      "prompt": "A photo of the board / sensor / actuator you worked with this week. Two lines: what it does and one thing that broke and how you fixed it.",
+      "caption": "Week 7 at Samsung Innovation Campus. Built [WHAT] this week with [BOARD/SENSOR]. Broke [X], fixed by [Y]. Thanks to TSSC + Samsung Electronics for the IoT track.\n\n#MySICStory #SamsungInnovationCampus",
+      "templateUrl": "https://www.canva.com/design/DAF1_placeholder_IoT/view"
+    },
+    "Big Data": {
+      "title": "Week 7 · Chart something.",
+      "prompt": "Share a chart or a dashboard tile you made this week. Two lines: what the data is and what it tells you.",
+      "caption": "Week 7 at Samsung Innovation Campus. Charted [WHAT]. Takeaway: [ONE INSIGHT]. Thanks to TSSC + Samsung Electronics for the Big Data track.\n\n#MySICStory #SamsungInnovationCampus",
+      "templateUrl": "https://www.canva.com/design/DAF1_placeholder_BigData/view"
+    }
+  }
+}

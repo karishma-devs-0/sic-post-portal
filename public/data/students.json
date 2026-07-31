@@ -1,0 +1,22 @@
+{
+  "SIC26-TSSC-0001": { "course": "AI",                    "university": "KMC Language University" },
+  "SIC26-TSSC-0042": { "course": "AI",                    "university": "Amity University" },
+  "SIC26-TSSC-0103": { "course": "AI",                    "university": "Chandigarh University" },
+  "SIC26-TSSC-0217": { "course": "Coding & Programming",  "university": "Maharaja Agrasen Institute of Technology" },
+  "SIC26-TSSC-0298": { "course": "Coding & Programming",  "university": "Rayat - Bahra University" },
+  "SIC26-TSSC-0355": { "course": "IoT",                   "university": "D. Y. Patil University, Ramrao Adik" },
+  "SIC26-TSSC-0421": { "course": "AI",                    "university": "KMC Language University" },
+  "SIC26-TSSC-0510": { "course": "Big Data",              "university": "Pimpri Chinchwad University" },
+  "SIC26-TSSC-0668": { "course": "IoT",                   "university": "SGT University" },
+  "SIC26-TSSC-0774": { "course": "Coding & Programming",  "university": "St. Andrews Institute of Technology" },
+  "SIC26-TSSC-0812": { "course": "Big Data",              "university": "USICT, GGSIPU, Dwarka" },
+  "SIC26-TSSC-0903": { "course": "AI",                    "university": "Bhagwan Parshuram Institute of Technology" },
+  "SIC26-TSSC-1044": { "course": "IoT",                   "university": "Dr. Akhilesh Das Gupta Institute" },
+  "SIC26-TSSC-1195": { "course": "AI",                    "university": "Savitri Bai Phule Pune University" },
+  "SIC26-TSSC-1266": { "course": "Big Data",              "university": "AIMT, Ambala" },
+  "SIC26-TSSC-1338": { "course": "Coding & Programming",  "university": "Central University of Haryana" },
+  "SIC26-TSSC-1477": { "course": "AI",                    "university": "State Institute of Engineering, Nilokheri" },
+  "SIC26-TSSC-1559": { "course": "IoT",                   "university": "Govt College for Women, Karnal" },
+  "SIC26-TSSC-1682": { "course": "Big Data",              "university": "Anjuman-I-Islam's Kalsekar Technical Campus" },
+  "SIC26-TSSC-1799": { "course": "Coding & Programming",  "university": "Rao Birendra Singh State Engineering College" }
+}
