@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check, Clipboard } from 'lucide-react'
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle'
 import AnimatedLetter from './AnimatedLetter'
+import PostButtons from './PostButtons'
 
 /**
  * SUBMIT_ENDPOINT: Google Apps Script Web App URL that accepts POST { roll, week, postUrl, ts }.
@@ -200,6 +201,9 @@ export default function Portal() {
 {task.caption}
                 </pre>
               </div>
+
+              {/* One-tap posting buttons — copies caption first, then opens composer */}
+              <PostButtons caption={task.caption} />
 
               {/* Get template link */}
               <div className="mt-6">
