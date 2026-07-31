@@ -236,12 +236,19 @@
   const diagPromise = runDiagnostics();
 
   // ---------- Section 1: pre-filled composer buttons ----------
+  // NOTE on LinkedIn: `feed/?shareActive=true&text=` works in DESKTOP browsers, but the
+  // LinkedIn Android/iOS app intercepts linkedin.com URLs via universal links and strips
+  // the query params — the app opens but the composer doesn't pre-fill. Workaround: always
+  // copy the caption to the clipboard BEFORE opening the app, so the user can paste in one tap.
+  // We do that for every L1 network (Threads has the same quirk on iOS).
   const L1 = [
-    { id: 'li',   name: 'LinkedIn', badge: 'undocumented',
+    { id: 'li',   name: 'LinkedIn', badge: 'app: paste manually',
+      note: 'The LinkedIn app intercepts the URL and ignores the caption param. We pre-copy the caption; long-press → Paste in the composer.',
       build: (t) => `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(t)}` },
     { id: 'x',    name: 'X (Twitter)',
       build: (t) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(t)}` },
     { id: 'th',   name: 'Threads',
+      note: 'Threads app on iOS sometimes ignores the text param; caption is pre-copied for paste.',
       build: (t) => `https://www.threads.net/intent/post?text=${encodeURIComponent(t)}` },
     { id: 'wa',   name: 'WhatsApp',
       build: (t) => `https://wa.me/?text=${encodeURIComponent(t)}` },
@@ -257,6 +264,14 @@
       btn.appendChild(b);
     }
 
+    // Small hint line under the button (only if cfg.note provided)
+    let noteEl = null;
+    if (cfg.note) {
+      noteEl = document.createElement('p');
+      noteEl.className = 'hint';
+      noteEl.textContent = cfg.note;
+    }
+
     const details = document.createElement('details');
     const summary = document.createElement('summary'); summary.textContent = 'show generated URL';
     const codeEl  = document.createElement('code'); codeEl.className = 'genurl';
@@ -268,9 +283,17 @@
     refresh();
     captionEl.addEventListener('input', refresh);
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async (ev) => {
+      // 1. Copy the caption FIRST inside the user-gesture, so even if the destination app
+      //    ignores the text param, the user can just paste.
+      const captionCopied = await copyText(getCaption());
+      // 2. Feedback on the button.
+      const origHTML = btn.innerHTML;
+      btn.innerHTML = `✓ Caption copied · opening ${cfg.name}…`;
+      setTimeout(() => (btn.innerHTML = origHTML), 1800);
+      // 3. Open the composer URL.
       const url = currentUrl();
-      log(`L1.${cfg.id} click · url.len=${url.length}`);
+      log(`L1.${cfg.id} click · caption_copied=${captionCopied} · url.len=${url.length}`);
       const w = window.open(url, '_blank', 'noopener,noreferrer');
       if (!w) log(`L1.${cfg.id} popup blocked`);
     });
@@ -280,7 +303,9 @@
       log(`L1.${cfg.id} copy link ${ok ? 'ok' : 'fail'}`);
     });
 
-    row.append(btn, details);
+    row.append(btn);
+    if (noteEl) row.append(noteEl);
+    row.append(details);
     l1Container.appendChild(row);
   });
 
