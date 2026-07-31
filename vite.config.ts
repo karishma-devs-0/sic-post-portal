@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 // For GitHub Pages: leave `base: './'` for user/organization pages or set to `'/<repo-name>/'` for project pages.
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/sic-post-portal/',
 })
